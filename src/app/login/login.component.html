@@ -1,0 +1,30 @@
+<!-- Contenedor de la página -->
+<div class="container">
+    <!--Contenedor del login -->
+    <div class="login-wrap">
+        <h2>Login</h2>
+        <form (ngSubmit)="checkLogin()" [formGroup]="loginForm">
+            <!--Usuario-->
+            <div>
+                <input class="inputBox"
+                    id="username"
+                    type="text"
+                    formControlName="username"
+                    placeholder="Username"
+                    required
+                />
+            </div>
+            <!--Contraseña-->
+            <div>
+                <input class="inputBox"
+                    id="password"
+                    type="password"
+                    formControlName="password"
+                    placeholder="Password"
+                    required
+                />
+            </div>
+            <button class="loginButton" type="submit" [disabled]="loginForm.invalid">Login</button>
+        </form>
+    </div> 
+</div>

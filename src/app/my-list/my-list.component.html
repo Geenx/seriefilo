@@ -1,0 +1,54 @@
+<div class="card">
+    <div class="card-header bg-primary text-white">
+      {{ title }}
+    </div>
+    <div class="card-block">
+      @if (myList.length) {
+        <div class="table-responsive">
+          <table class="table table-striped m-0">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Score</th>
+                <th>Progress</th>
+              </tr>
+            </thead>
+            @for (serie of myList; track serie.id){
+              <tbody>
+                <tr>
+                  <th class="title-column"><img src="https://image.tmdb.org/t/p/w500/{{serie.poster_path}}" class=" rounded-float-left custom-img" alt="...">{{serie.name}}</th>
+                  <th><div class="dropdown">
+                    <select class="form-select" [(ngModel)]="serie.selectedScore" (change)="onScoreChange(serie.id,serie.selectedScore)" aria-label="Default select example">
+                      @for (score of scores;track score){
+                        @if(serie.selectedScore==score){
+                          <option [value]="score" selected>{{score}}</option>}
+                        @else {
+                          <option [value]="score">{{score}}</option>
+                        }
+                      }
+
+                    </select>
+                  </div></th>
+                  <th><div class="dropdown">
+                    <select class="form-select" [(ngModel)]="serie.selectedProgress" (change)="onStatusChange(serie.id,serie.selectedProgress)" aria-label="Default select example">
+                      @for (status of statuses;track status){
+                        @if(serie.selectedProgress==status){
+                          <option [value]="status" selected>{{status}}</option>}
+                        @else {
+                          <option [value]="status">{{status}}</option>
+                        }
+                      }
+                      
+                    </select>
+                    <button (click)="borrarLista(serie)" class="btn  btn bi bi-dash-circle button-colour custom-btn" type="submit"></button>
+                  </div></th>
+              </tr>
+              </tbody>
+              }
+          </table>
+        </div>
+      } @else {
+        <h3 class="p-4">There's no TV shows added</h3>
+      }
+    </div>
+  </div>

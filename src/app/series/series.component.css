@@ -1,0 +1,65 @@
+h2 {
+    color: white;
+    text-align: center;
+    font-weight: 200;
+    font-size: 4em;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+.custom-colour{
+    color: white !important;
+    background-color: #343235;
+}
+
+.poster-images{
+  width: 100%;
+  height: auto;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #343235;
+}
+
+.card-body {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.btn-primary {
+  margin-left: auto;
+  color: red;
+  display: flex;
+  align-items: right;
+  text-align: right;
+}
+
+.card-title{
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  width: 100%;
+}
+
+.button-colour{
+  border: none;
+  color: #7c9e8f;
+}
+
+.button-colour:hover {
+  color:#5a6c6e;
+}
+
+.btn{
+  float: right;
+  padding-right: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
