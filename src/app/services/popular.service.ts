@@ -10,14 +10,14 @@ import { environment } from '../../environments/environment';
 })
 export class PopularService {
   #http = inject(HttpClient);
-  #popularUrl = `https://api.themoviedb.org/3/tv/popular?api_key=${environment.apiKey}&language=en&page=1`;
+  #popularUrl = `https://api.themoviedb.org/3/tv/popular?api_key=${environment.apiKey}&language=en&page=`;
 
   constructor() { }
 
- getPopular(): Observable<Serie[]> {
-    return this.#http.get<SeriesResponse>(`${this.#popularUrl}`).pipe(
-      map(resp => {
-        return resp.results;
+ getPopular(page: number): Observable<SeriesResponse> {
+    return this.#http.get<SeriesResponse>(`${this.#popularUrl}${page}`).pipe(
+      map(resp => { console.log(resp);
+        return resp;
       })
     );
   }
