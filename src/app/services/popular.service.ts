@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import {SeriesResponse } from '../interfaces/serie';
-import { Serie } from '../interfaces/serie';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -16,7 +15,7 @@ export class PopularService {
 
  getPopular(page: number): Observable<SeriesResponse> {
     return this.#http.get<SeriesResponse>(`${this.#popularUrl}${page}`).pipe(
-      map(resp => { console.log(resp);
+      map(resp => {
         return resp;
       })
     );

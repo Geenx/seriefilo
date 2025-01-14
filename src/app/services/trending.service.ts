@@ -10,14 +10,14 @@ import { environment } from '../../environments/environment';
 })
 export class TrendingService {
   #http = inject(HttpClient);
-  #trendingUrl = `https://api.themoviedb.org/3/trending/tv/day?api_key=${environment.apiKey}&language=en-US`;
+  #trendingUrl = `https://api.themoviedb.org/3/trending/tv/day?api_key=${environment.apiKey}&language=en-US&page=`;
 
   constructor() { }
 
- getTrending(): Observable<Serie[]> {
-    return this.#http.get<SeriesResponse>(`${this.#trendingUrl}`).pipe(
+ getTrending(page: Number): Observable<SeriesResponse> {
+    return this.#http.get<SeriesResponse>(`${this.#trendingUrl}${page}`).pipe(
       map(resp => {
-        return resp.results;
+        return resp;
       })
     );
   }

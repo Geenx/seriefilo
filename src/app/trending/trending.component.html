@@ -1,4 +1,10 @@
 <h2>Trending TV shows today</h2>
+<mat-paginator
+  [length]="totalResults()" 
+  [pageSize]=""
+  [pageSizeOptions]="[]"
+  (page)="onPageChange($event)">
+</mat-paginator>
 <div class="row row-cols-1 row-cols-md-4 g-4">
     @for (serie of series(); track serie.id) {
         <div class="col d-flex align-items-stretch">
